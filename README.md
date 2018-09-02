@@ -27,7 +27,7 @@ Easy-to-use, ad-free and open-source Holy Quran app for Android with English and
 
 ![Screenshot](https://raw.githubusercontent.com/sarfraznawaz2005/nativescript-holyquran/master/screen7.png)
 
-### Download APK
+### [Download APK](https://github.com/sarfraznawaz2005/nativescript-holyquran/raw/master/holyquran.apk)
 
 ## Install and run on device (for developers)
 
@@ -37,8 +37,8 @@ Easy-to-use, ad-free and open-source Holy Quran app for Android with English and
 
 ## Translations
 
- - English Translation: Saheeh International
- - Urdu Translation: Fateh Muhammad Jalandhry
+ - English Translation: **Saheeh International**
+ - Urdu Translation: **Fateh Muhammad Jalandhry**
 
 **Please inform me at sarfraznawaz2005@gmail.com if you find any issue or problem in text.**
 
