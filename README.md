@@ -42,6 +42,12 @@ Easy-to-use, ad-free and open-source Holy Quran app for Android with English and
 
 **Please inform me at sarfraznawaz2005@gmail.com if you find any issue or problem in text.**
 
+## Similar Projects
+
+- [The Holy Quran](https://github.com/sarfraznawaz2005/holy-quran)
+- [Quran Browser Extension](https://github.com/sarfraznawaz2005/quran-browser-extension)
+- [Holy Quran CLI](https://github.com/sarfraznawaz2005/quran-cli)
+
 ## License
 
 This project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
