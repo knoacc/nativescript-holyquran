@@ -1,0 +1,31 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem tap="{{ searchTranslations }}" ios.systemIcon="0" ios.position="left" android.systemIcon="ic_menu_search" android.position="actionBar"></ActionItem>
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left"></ActionItem>
+        
+        <Label class="action-bar-title" text="Holy Quran"></Label>
+    </ActionBar>
+
+    <StackLayout>
+        <SearchBar hint="Filter" text="{{ filter }}" loaded="{{ searchBarLoaded }}" />
+
+        <ListView class="list-group" items="{{ chapters }}" itemTap="{{ onItemTap }}">
+            <ListView.itemTemplate>
+                <StackLayout>
+                    <GridLayout columns="auto, *" rows="*, auto" class="list-group-item">
+                        <Label col="0" row="0" text="{{ number }}" class="number2" />
+                        <Label col="1" row="0" text="{{ ' ' + englishName + ' (' + englishNameTranslation + ')' }}" />
+                        <Label col="1" row="1" text="{{ 'Verses: ' + ayahs.length + ', Type: ' + revelationType }}" class="text-muted" style="font-size:12; margin-left:5;" />
+                    </GridLayout>
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+
+        <ActivityIndicator busy="{{ isLoading }}" visibility="{{ isLoading ? 'visible' : 'collapse' }}" row="1" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator" width="75" height="75"></ActivityIndicator>
+    </StackLayout>
+
+</Page>

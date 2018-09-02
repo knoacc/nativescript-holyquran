@@ -1,0 +1,52 @@
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+-->
+<nsDrawer:RadSideDrawer id="sideDrawer" 
+    xmlns:nsDrawer="nativescript-ui-sidedrawer" loaded="onLoaded">
+    <nsDrawer:RadSideDrawer.drawerTransition>
+        <nsDrawer:SlideInOnTopTransition/>
+    </nsDrawer:RadSideDrawer.drawerTransition>
+
+    <nsDrawer:RadSideDrawer.drawerContent>
+        <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left">
+            <StackLayout orientation="horizontal" class="sidedrawer-header" style="height: 80; margin-top:5;">
+                <Image src="res://icon" width="30" height="30"></Image>
+                <Label class="footnote" text="Holy Quran" style="font-size: 24; margin-top:15; margin-left:10;" />
+            </StackLayout>
+
+            <ScrollView row="1">
+                <StackLayout class="sidedrawer-content">
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Home' ? ' selected': '') }}" route="home/home-page" title="Home" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf015;" class="fa" />
+                        <Label row="0" col="1" text="Home" class="p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Bookmarks' ? ' selected': '') }}" route="bookmarks/bookmark-page" title="Bookmarks" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf02e;" class="fa" />
+                        <Label row="0" col="1" text="Bookmarks" class="p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}" route="settings/settings-page" title="Settings" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf013;" class="fa" />
+                        <Label row="0" col="1" text="Settings" class="p-r-10" />
+                    </GridLayout>
+
+                    <StackLayout class="hr-light"></StackLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'About' ? ' selected': '') }}" route="about/about-page" title="About" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf007;" class="fa" />
+                        <Label row="0" col="1" text="About" class="p-r-10" />
+                    </GridLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </GridLayout>
+    </nsDrawer:RadSideDrawer.drawerContent>
+
+    <nsDrawer:RadSideDrawer.mainContent>
+        <Frame defaultPage="home/home-page"></Frame>
+    </nsDrawer:RadSideDrawer.mainContent>
+</nsDrawer:RadSideDrawer>

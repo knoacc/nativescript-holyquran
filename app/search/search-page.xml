@@ -1,0 +1,41 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Search Results"></Label>
+    </ActionBar>
+
+    <StackLayout class="container">
+
+        <ListView class="list-group" items="{{ verses }}">
+            <ListView.itemTemplate>
+                <StackLayout>
+                    <GridLayout columns="*" rows="*" class="list-group-item">
+                        <Label class="text-muted" text="{{chapter.number + '. ' + chapter.englishName + ' (' + chapter.englishNameTranslation + ')' }}"></Label>
+                    </GridLayout>
+                    <GridLayout columns="45, *" rows="*" class="list-group-item">
+                        <Label col="0" text="{{ numberInSurah }}" class="number text-muted c-bg-grey-dark" verticalAlignment="top" />
+                        <Label col="1" text="{{ textArabic }}" class="arabic" textWrap="true" />
+                    </GridLayout>
+                    <GridLayout columns="*" rows="*" class="list-group-item" visibility="{{ urduEnabled ? 'visible' : 'collapse' }}">
+                        <Label colSpan="2" text="{{ textUrdu }}" class="urdu" textWrap="true" />
+                    </GridLayout>
+                    <GridLayout columns="*" rows="*" class="list-group-item" visibility="{{ englishEnabled ? 'visible' : 'collapse' }}">
+                        <Label colSpan="2" text="{{ text }}" textWrap="true" />
+                    </GridLayout>
+                    <FlexboxLayout>
+                        <Button text="&#xf004;" class="{{'fa ' + bookmarkClass}}" tap="{{ $parents['Page'].toggleBookmark }}" />
+                        <Button text="&#xf0c5;" class="fa c-bg-sky" tap="{{ $parents['Page'].copy }}" />
+                        <Button text="&#xf1e1;" class="fa c-bg-lemon" tap="{{ $parents['Page'].share }}" />
+                    </FlexboxLayout>
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+
+        <ActivityIndicator busy="{{ isLoading }}" visibility="{{ isLoading ? 'visible' : 'collapse' }}" row="1" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator" width="75" height="75"></ActivityIndicator>
+    </StackLayout>
+</Page>

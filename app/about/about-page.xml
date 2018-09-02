@@ -1,0 +1,30 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="About"></Label>
+    </ActionBar>
+
+    <FlexboxLayout style="align-items: flex-start; margin:20; background-color: #fff;">
+        <StackLayout style="text-align:center; font-size:16;">
+            <Image src="res://icon" width="150" height="150" style="margin-top:30; margin-bottom:20;"></Image>
+            <Label text="Holy Quran" style="font-weight:bold; font-size:20;" />
+
+            <Label text="Easy-to-use, ad-free and opensource Holy Quran app with English and Urdu translation brought to you by: " textWrap="true" />
+
+            <Label text="Sarfraz Ahmed" style="font-weight:bold; margin-top:10;" />
+
+            <HtmlView html="http://codeinphp.github.io" style="horizontal-align: center; font-size:16;"></HtmlView>
+
+            <StackLayout class="hr-light" style="margin-top:10; margin-bottom:10;"></StackLayout>
+
+            <Label class="text-muted" text="English Translation: Saheeh International" style="font-size:12;" />
+            <Label class="text-muted" text="Urdu Translation: Fateh Muhammad Jalandhry" style="font-size:12;" />
+
+        </StackLayout>
+    </FlexboxLayout>
+
+</Page>

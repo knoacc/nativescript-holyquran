@@ -1,0 +1,17 @@
+.container {
+    margin: 20;
+    font-size: 16;
+}
+
+.heading {
+    font-size: 18;
+    margin-bottom: 15;
+    font-weight: bold;
+    border-style: solid;
+    border-bottom-width: 1;
+    border-bottom-color: #ddd;
+}
+
+.setting {
+    margin-bottom: 25;
+}

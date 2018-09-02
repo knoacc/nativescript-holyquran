@@ -1,0 +1,34 @@
+{
+  "nativescript": {
+    "id": "io.github.codeinphp.holyquran",
+    "tns-android": {
+      "version": "4.2.0"
+    },
+    "tns-ios": {
+      "version": "4.2.0"
+    }
+  },
+  "description": "Holy Quran app with English/Urdu translation.",
+  "license": "MIT",
+  "repository": "https://github.com/sarfraznawaz2005/nativescript-holyquran",
+  "scripts": {
+    "lint": "eslint \"app/**/*.js\""
+  },
+  "dependencies": {
+    "nativescript-clipboard": "^1.1.7",
+    "nativescript-social-share": "^1.5.0",
+    "nativescript-sqlite": "^2.2.1",
+    "nativescript-theme-core": "~1.0.4",
+    "nativescript-toast": "^1.4.6",
+    "nativescript-ui-sidedrawer": "~4.2.0",
+    "rxjs": "~6.2.0",
+    "tns-core-modules": "~4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "~4.19.0",
+    "nativescript-dev-sass": "~1.6.0",
+    "nativescript-dev-webpack": "~0.15.0"
+  },
+  "readme": "Holy Quran app with English/Urdu translation.",
+  "author": "Sarfraz Ahmed (sarfraznawaz2005@gmail.com)"
+}

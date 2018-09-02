@@ -1,0 +1,26 @@
+<Page navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Settings"></Label>
+    </ActionBar>
+
+    <StackLayout class="container">
+        <!-- Translation Settings Start -->
+        <Label text="Translation" class="heading text-muted" />
+
+        <GridLayout columns="*, auto" rows="auto, auto">
+            <Label text="English Translation Enabled" class="setting" />
+            <Switch col="1" checked="{{ englishEnabled }}" class="setting" />
+
+            <Label row="1" text="Urdu Translation Enabled" class="setting" />
+            <Switch row="1" col="1" checked="{{ urduEnabled }}" class="setting" />
+        </GridLayout>
+        <!-- Translation Settings End -->
+
+    </StackLayout>
+
+</Page>
