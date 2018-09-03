@@ -7,6 +7,7 @@ const FrameModule = require("ui/frame");
 const dialog = require("ui/dialogs");
 const searchBarModule = require("ui/search-bar");
 const Toast = require("nativescript-toast");
+const appSettings = require("application-settings");
 
 // declared here for cache reasons
 const chapters = new observableArray([]);
@@ -44,6 +45,8 @@ function HomeViewModel() {
                     viewModel.set("chapters", chapters);
                     viewModel.set("isLoading", false);
 
+                    restoreLastReadingPoint();
+
                 }, (error) => {
                     dialog.alert({
                         message: error,
@@ -66,8 +69,13 @@ function HomeViewModel() {
     }
 
     // functions
+
     viewModel.onItemTap = function (args) {
-        const chapter = this.chapters.getItem(args.index);
+        viewModel.goToChapter(args.index);
+    };
+
+    viewModel.goToChapter = function (index) {
+        const chapter = this.chapters.getItem(index);
         const chapterArabic = arabicChapters[chapter.number - 1];
         const chapterUrdu = urduChapters[chapter.number - 1];
 
@@ -81,6 +89,15 @@ function HomeViewModel() {
             clearHistory: false
         });
     };
+
+    function restoreLastReadingPoint() {
+        if (Settings.readingPointEnabled) {
+            if (appSettings.hasKey("last_chapter") && appSettings.hasKey("last_verse")) {
+                viewModel.set("isLoading", true);
+                viewModel.goToChapter(appSettings.getNumber("last_chapter") - 1);
+            }
+        }
+    }
 
     function mergeVerses(chapter, chapterArabic, chapterUrdu) {
         const chapterData = chapter;

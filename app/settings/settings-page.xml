@@ -21,6 +21,15 @@
         </GridLayout>
         <!-- Translation Settings End -->
 
+        <!-- Reading Settings Start -->
+        <Label text="Reading" class="heading text-muted" />
+
+        <GridLayout columns="*, auto" rows="auto, auto">
+            <Label text="Auto-Restore Last Reading Point" class="setting" />
+            <Switch col="1" checked="{{ readingPointEnabled }}" class="setting" />
+        </GridLayout>
+        <!-- Reading Settings End -->        
+
     </StackLayout>
 
 </Page>

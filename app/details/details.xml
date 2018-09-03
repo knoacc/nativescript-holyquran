@@ -17,7 +17,7 @@
 
         <SearchBar hint="Filter" text="{{ filter }}" loaded="{{ searchBarLoaded }}" />
 
-        <ListView class="list-group" items="{{ verses }}">
+        <ListView loaded="{{ onListViewLoaded }}" itemLoading="{{ onItemLoading }}" class="list-group" items="{{ verses }}">
             <ListView.itemTemplate>
                 <StackLayout>
                     <GridLayout columns="45, *" rows="*" class="list-group-item">

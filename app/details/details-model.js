@@ -4,6 +4,8 @@ const searchBarModule = require("ui/search-bar");
 const clipboardModule = require("nativescript-clipboard");
 const socialShareModule = require("nativescript-social-share");
 const Toast = require("nativescript-toast");
+const appSettings = require("application-settings");
+const Settings = require("../settings/settings-view-model").SettingsViewModel;
 
 function DetailsViewModel(database, chapter) {
 
@@ -42,6 +44,25 @@ function DetailsViewModel(database, chapter) {
     }
 
     // functions
+
+    viewModel.onListViewLoaded = function (args) {
+        const listView = args.object;
+
+        if (Settings.readingPointEnabled) {
+            if (appSettings.hasKey("last_chapter") && appSettings.hasKey("last_verse")) {
+                if (chapter.number === appSettings.getNumber("last_chapter")) {
+                    listView.scrollToIndex(appSettings.getNumber("last_verse"));
+                }
+            }
+        }
+    };
+
+    viewModel.onItemLoading = function (args) {
+        const index = args.index;
+
+        appSettings.setNumber("last_chapter", chapter.number);
+        appSettings.setNumber("last_verse", index - 1);
+    };
 
     viewModel.copy = function (args) {
         const selected = args.object.bindingContext;

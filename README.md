@@ -9,6 +9,7 @@ Easy-to-use, ad-free and open-source Holy Quran app for Android with English and
 - Ability to easily share the verses with others
 - Filter feature
 - Optional English and Urdu translations
+- Option to auto restore last reading position on launch
 - Easy to use and ad-free
 
 ## Screenshots
