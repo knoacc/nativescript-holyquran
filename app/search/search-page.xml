@@ -6,7 +6,7 @@
 
         <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
         </ActionItem>
-        <Label class="action-bar-title" text="Search Results"></Label>
+        <Label class="action-bar-title" text="{{ 'Search Results' + ' (' + verses.length + ')' }}"></Label>
     </ActionBar>
 
     <StackLayout class="container">

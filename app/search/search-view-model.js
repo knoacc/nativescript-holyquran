@@ -50,7 +50,19 @@ function SearchViewModel(database, verses) {
 
     viewModel.share = function (args) {
         const selected = args.object.bindingContext;
-        const text = `${selected.textArabic}\n\n${selected.text}\n\n(Holy Quran ${selected.number}:${selected.numberInSurah})`;
+
+        const footer = `(Holy Quran ${selected.chapter.number}:${selected.numberInSurah})`;
+        let text = `${selected.textArabic}\n\n`;
+
+        if (selected.urduEnabled) {
+            text += `${selected.textUrdu}\n\n`;
+        }
+
+        if (selected.englishEnabled) {
+            text += `${selected.text}\n\n`;
+        }
+
+        text += footer;
 
         socialShareModule.shareText(text);
     };

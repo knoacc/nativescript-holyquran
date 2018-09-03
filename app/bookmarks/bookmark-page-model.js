@@ -32,7 +32,19 @@ function BookmarksViewModel(database) {
 
     viewModel.share = function (args) {
         const selected = args.object.bindingContext;
-        const text = `${selected.textArabic}\n\n${selected.text}\n\n(Holy Quran ${selected.number}:${selected.numberInSurah})`;
+
+        const footer = `(Holy Quran ${selected.number}:${selected.numberInSurah})`;
+        let text = `${selected.textArabic}\n\n`;
+
+        if (selected.urduEnabled) {
+            text += `${selected.textUrdu}\n\n`;
+        }
+
+        if (selected.englishEnabled) {
+            text += `${selected.text}\n\n`;
+        }
+
+        text += footer;
 
         socialShareModule.shareText(text);
     };
@@ -81,7 +93,7 @@ function BookmarksViewModel(database) {
 
             const items = new observableArray([]);
 
-            viewModel.verses.forEach((item) => {
+            viewModel.versesAll.forEach((item) => {
                 if (item.text.match(regexp) || item.numberInSurah.toString().match(regexp) || item.englishName.match(regexp) || item.englishNameTranslation.match(regexp)) {
                     items.push(item);
                 }

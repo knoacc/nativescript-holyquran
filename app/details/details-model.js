@@ -42,12 +42,32 @@ function DetailsViewModel(database, chapter) {
     }
 
     // functions
+
     viewModel.copy = function (args) {
         const selected = args.object.bindingContext;
 
         clipboardModule.setText(selected.text).then(() => {
             Toast.makeText("Copied to clipboard").show();
         });
+    };
+
+    viewModel.share = function (args) {
+        const selected = args.object.bindingContext;
+
+        const footer = `(Holy Quran ${selected.chapterNumber}:${selected.numberInSurah})`;
+        let text = `${selected.textArabic}\n\n`;
+
+        if (selected.urduEnabled) {
+            text += `${selected.textUrdu}\n\n`;
+        }
+
+        if (selected.englishEnabled) {
+            text += `${selected.text}\n\n`;
+        }
+
+        text += footer;
+
+        socialShareModule.shareText(text);
     };
 
     viewModel.toggleBookmark = function (args) {
@@ -61,13 +81,6 @@ function DetailsViewModel(database, chapter) {
                 insertBookmark(verse);
             }
         });
-    };
-
-    viewModel.share = function (args) {
-        const selected = args.object.bindingContext;
-        const text = `${selected.textArabic}\n\n${selected.text}\n\n(Holy Quran ${selected.chapterNumber}:${selected.numberInSurah})`;
-
-        socialShareModule.shareText(text);
     };
 
     viewModel.searchBarLoaded = function (args) {
@@ -97,7 +110,7 @@ function DetailsViewModel(database, chapter) {
 
             const items = new observableArray([]);
 
-            viewModel.verses.forEach((item) => {
+            viewModel.versesAll.forEach((item) => {
                 if (item.text.match(regexp) || item.numberInSurah.toString().match(regexp)) {
                     items.push(item);
                 }

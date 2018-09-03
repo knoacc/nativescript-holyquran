@@ -25,7 +25,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     </GridLayout>
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Bookmarks' ? ' selected': '') }}" route="bookmarks/bookmark-page" title="Bookmarks" tap="onNavigationItemTap">
-                        <Label row="0" col="0" text="&#xf02e;" class="fa" />
+                        <Label row="0" col="0" text="&#xf004;" class="fa" />
                         <Label row="0" col="1" text="Bookmarks" class="p-r-10" />
                     </GridLayout>
 
